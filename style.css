@@ -1,11 +1,12 @@
 body{
 font-family:Segoe UI;
-background:linear-gradient(135deg,#667eea,#764ba2);
+background:linear-gradient(#a6d8ff,#eaf6ff);
+height:100vh;
+margin:0;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-margin:0;
+overflow:hidden;
 }
 
 .container{
@@ -14,6 +15,72 @@ padding:30px;
 width:420px;
 border-radius:15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+.sky{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.cloud{
+position:absolute;
+background:white;
+border-radius:50px;
+opacity:0.8;
+}
+
+.cloud:before,
+.cloud:after{
+content:"";
+position:absolute;
+background:white;
+border-radius:50%;
+}
+
+.cloud1{
+width:120px;
+height:60px;
+top:80px;
+left:10%;
+animation:moveCloud 60s linear infinite;
+}
+
+.cloud1:before{
+width:70px;
+height:70px;
+top:-30px;
+left:10px;
+}
+
+.cloud1:after{
+width:90px;
+height:90px;
+top:-40px;
+right:10px;
+}
+
+.cloud2{
+width:150px;
+height:70px;
+top:200px;
+left:40%;
+animation:moveCloud 90s linear infinite;
+}
+
+.cloud3{
+width:100px;
+height:50px;
+top:120px;
+left:70%;
+animation:moveCloud 70s linear infinite;
+}
+
+@keyframes moveCloud{
+0%{transform:translateX(0);}
+100%{transform:translateX(100vw);}
 }
 
 h1{
