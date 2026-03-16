@@ -3,25 +3,26 @@ function addTodo(){
 let input = document.getElementById("todoInput")
 let text = input.value
 
-if(text === ""){
-alert("Isi tugas dulu")
-return
-}
+if(text === "") return
 
 let li = document.createElement("li")
-li.textContent = text
 
-li.onclick = function(){
+let span = document.createElement("span")
+span.textContent = text
+
+span.onclick = function(){
 li.classList.toggle("done")
 }
 
 let deleteBtn = document.createElement("button")
-deleteBtn.textContent = "Hapus"
+deleteBtn.textContent = "X"
+deleteBtn.className = "delete"
 
 deleteBtn.onclick = function(){
 li.remove()
 }
 
+li.appendChild(span)
 li.appendChild(deleteBtn)
 
 document.getElementById("todoList").appendChild(li)
