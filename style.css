@@ -1,6 +1,6 @@
 body{
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg,#667eea,#764ba2);
+font-family: 'Segoe UI', sans-serif;
+background:#f2f4f8;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -8,20 +8,20 @@ height:100vh;
 margin:0;
 }
 
-.todo-container{
+.app{
 background:white;
-padding:30px;
-border-radius:15px;
 width:350px;
-box-shadow:0 15px 30px rgba(0,0,0,0.2);
-text-align:center;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1{
+text-align:center;
 margin-bottom:20px;
 }
 
-.input-area{
+.todo-input{
 display:flex;
 gap:10px;
 }
@@ -29,22 +29,21 @@ gap:10px;
 input{
 flex:1;
 padding:10px;
-border-radius:8px;
-border:1px solid #ccc;
+border:1px solid #ddd;
+border-radius:6px;
 }
 
 button{
-padding:10px 15px;
-border:none;
-background:#4CAF50;
+background:#4a6cf7;
 color:white;
-border-radius:8px;
+border:none;
+padding:10px 15px;
+border-radius:6px;
 cursor:pointer;
-font-weight:bold;
 }
 
 button:hover{
-background:#43a047;
+background:#3a56d4;
 }
 
 ul{
@@ -54,10 +53,8 @@ margin-top:20px;
 }
 
 li{
-background:#f5f5f5;
 padding:10px;
-margin-top:10px;
-border-radius:8px;
+border-bottom:1px solid #eee;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -69,12 +66,13 @@ color:gray;
 }
 
 .delete{
-background:red;
+background:none;
 border:none;
-color:white;
-padding:5px 8px;
-border-radius:5px;
+color:red;
 cursor:pointer;
 }
+
+
+
 
 
