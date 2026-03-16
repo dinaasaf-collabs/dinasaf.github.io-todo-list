@@ -4,86 +4,103 @@ function saveTasks(){
 localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
-function renderTasks(){
+function render(){
 
-const list = document.getElementById("todo-list")
+const list = document.getElementById("list")
 list.innerHTML=""
 
 tasks.forEach((task,index)=>{
 
 const li = document.createElement("li")
 
-const span = document.createElement("span")
-span.innerText = task.text
+const title = document.createElement("div")
+title.className="task-title"
+title.innerText=task.text
 
 if(task.done){
-span.classList.add("completed")
+title.classList.add("completed")
 }
 
-span.onclick = ()=>{
-tasks[index].done = !tasks[index].done
-saveTasks()
-renderTasks()
-}
+const date = document.createElement("div")
+date.className="task-date"
+date.innerText="📅 "+task.date
+
+const notes = document.createElement("div")
+notes.className="task-notes"
+notes.innerText="📝 "+task.notes
 
 const actions = document.createElement("div")
-actions.classList.add("actions")
+actions.className="actions"
+
+const doneBtn = document.createElement("button")
+doneBtn.innerText="Selesai"
+doneBtn.className="done"
+
+doneBtn.onclick=()=>{
+tasks[index].done=!tasks[index].done
+saveTasks()
+render()
+}
 
 const editBtn = document.createElement("button")
 editBtn.innerText="Edit"
-editBtn.classList.add("edit")
+editBtn.className="edit"
 
-editBtn.onclick = ()=>{
-const newText = prompt("Edit tugas:", task.text)
+editBtn.onclick=()=>{
+const newText = prompt("Edit tugas:",task.text)
 if(newText){
-tasks[index].text = newText
+tasks[index].text=newText
 saveTasks()
-renderTasks()
+render()
 }
 }
 
 const delBtn = document.createElement("button")
 delBtn.innerText="Hapus"
 
-delBtn.onclick = ()=>{
+delBtn.onclick=()=>{
 tasks.splice(index,1)
 saveTasks()
-renderTasks()
+render()
 }
 
+actions.appendChild(doneBtn)
 actions.appendChild(editBtn)
 actions.appendChild(delBtn)
 
-li.appendChild(span)
+li.appendChild(title)
+li.appendChild(date)
+li.appendChild(notes)
 li.appendChild(actions)
 
 list.appendChild(li)
 
 })
 
-document.getElementById("task-counter").innerText = "Jumlah tugas: " + tasks.length
 }
 
 function addTask(){
 
-const input = document.getElementById("todo-input")
+const text=document.getElementById("task").value
+const date=document.getElementById("date").value
+const notes=document.getElementById("notes").value
 
-if(input.value==="") return
+if(text==="") return
 
 tasks.push({
-text:input.value,
+text:text,
+date:date,
+notes:notes,
 done:false
 })
 
-input.value=""
+document.getElementById("task").value=""
+document.getElementById("date").value=""
+document.getElementById("notes").value=""
 
 saveTasks()
-renderTasks()
+render()
+
 }
 
-document.getElementById("darkModeToggle").onclick = ()=>{
-document.body.classList.toggle("dark")
-}
-
-renderTasks()
-
+render()
