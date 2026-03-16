@@ -11,22 +11,25 @@
 
 <div class="container">
 
-    <div class="header">
-        <h1>✨ Todo List</h1>
-        <button id="darkModeToggle">🌙</button>
-    </div>
+<h1>📋 Todo List</h1>
 
-    <div class="input-area">
-        <input type="text" id="todo-input" placeholder="Tulis tugas...">
-        <button onclick="addTask()">Tambah</button>
-    </div>
+<div class="form">
 
-    <p id="task-counter">Jumlah tugas: 0</p>
+<input type="text" id="task" placeholder="Tugas...">
 
-    <ul id="todo-list"></ul>
+<input type="date" id="date">
+
+<textarea id="notes" placeholder="Catatan tugas..."></textarea>
+
+<button onclick="addTask()">Tambah</button>
+
+</div>
+
+<ul id="list"></ul>
 
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
